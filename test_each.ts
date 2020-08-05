@@ -12,8 +12,12 @@ export function testEach<T, K>(
   name: string,
   input: TestCase<T, K>[],
   fn: (testCase: TestCase<T, K>) => Promise<unknown> | unknown,
-  only?: boolean,
-  ignore?: boolean
+  options?: {
+    only?: boolean;
+    ignore?: boolean;
+    sanitizeOps?: boolean;
+    sanitizeResources?: boolean;
+  },
 ) {
   input.forEach((input, i) => {
     Deno.test({
@@ -29,8 +33,10 @@ export function testEach<T, K>(
           await fn(input);
         }
       },
-      only: only,
-      ignore: ignore,
+      only: options?.only,
+      ignore: options?.ignore,
+      sanitizeOps: options?.sanitizeOps,
+      sanitizeResources: options?.sanitizeResources,
     });
   });
 }

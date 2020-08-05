@@ -1,1 +1,1 @@
-export { TestCase, testEach } from "./test_each.ts"
+export { TestCase, testEach } from "./test_each.ts";
