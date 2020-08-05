@@ -10,7 +10,7 @@ You can add descriptions to each `TestCase`, so you can use them in assertions, 
 
 ```ts
 
-import { TestCase, testEach } from "https://deno.land/x/test_each@v0.0.1/mod.ts";
+import { TestCase, testEach } from "https://deno.land/x/test_each@v0.0.2/mod.ts";
 
 testEach<{a: number, b: number}, number>(
   "Quick math",
